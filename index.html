@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support — The Center Breathwork</title>
+  <meta name="description" content="Get help and support for The Center Breathwork app." />
+  <meta property="og:title" content="Support — The Center Breathwork" />
+  <meta property="og:description" content="Get help and support for The Center Breathwork app." />
+  <meta name="theme-color" content="#0A0E1A" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0A0E1A;
+      --surface: #121929;
+      --card: #1A2340;
+      --card-border: #232E4A;
+      --primary: #5BB5A2;
+      --primary-muted: rgba(91,181,162,0.15);
+      --accent: #E8B86D;
+      --text: #E4E8F0;
+      --text-secondary: #8B95A8;
+      --text-muted: #5A6578;
+      --divider: rgba(255,255,255,0.06);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: rgba(10,14,26,0.85);
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-brand svg { width: 22px; height: 22px; color: var(--primary); }
+
+    .nav-brand span {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .nav-link {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: color 0.2s;
+    }
+
+    .nav-link:hover { color: var(--text); }
+
+    .page-header {
+      text-align: center;
+      padding: 80px 24px 48px;
+      background: radial-gradient(ellipse at 50% 0%, #0D2A25 0%, var(--bg) 60%);
+    }
+
+    .page-header h1 {
+      font-size: clamp(32px, 6vw, 48px);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .page-header h1 span { color: var(--primary); }
+
+    .page-header p {
+      font-size: 16px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    main {
+      flex: 1;
+      max-width: 720px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    .support-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+
+    .support-card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 28px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .support-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(91,181,162,0.2);
+    }
+
+    .support-card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      background: var(--primary-muted);
+    }
+
+    .support-card-icon svg { width: 22px; height: 22px; color: var(--primary); }
+
+    .support-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .support-card p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .support-card a.card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 14px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--primary);
+      transition: gap 0.2s;
+    }
+
+    .support-card a.card-link:hover { gap: 10px; }
+
+    .support-card a.card-link svg { width: 16px; height: 16px; }
+
+    .faq-section { margin-bottom: 48px; }
+
+    .faq-section h2 {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .faq-item {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      padding: 20px 24px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+      transition: color 0.2s;
+    }
+
+    .faq-question:hover { color: var(--primary); }
+
+    .faq-question svg {
+      width: 18px;
+      height: 18px;
+      color: var(--text-muted);
+      transition: transform 0.3s;
+      flex-shrink: 0;
+      margin-left: 12px;
+    }
+
+    .faq-item.open .faq-question svg { transform: rotate(180deg); }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+    }
+
+    .faq-answer-inner {
+      padding: 0 24px 20px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .contact-section {
+      text-align: center;
+      background: var(--surface);
+      border: 1px solid var(--card-border);
+      border-radius: 22px;
+      padding: 40px 28px;
+    }
+
+    .contact-section h2 {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+    }
+
+    .contact-section p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .contact-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, var(--primary), #3D9B88);
+      color: var(--bg);
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 700;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .contact-email:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(91,181,162,0.3);
+    }
+
+    .contact-email svg { width: 18px; height: 18px; }
+
+    .response-note {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 14px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px 24px;
+      border-top: 1px solid var(--divider);
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .footer-brand svg { width: 18px; height: 18px; color: var(--primary); }
+    .footer-brand span { font-size: 15px; font-weight: 600; }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      font-size: 12px;
+      color: var(--text-secondary);
+      text-decoration: underline;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--text); }
+    .footer-links span { font-size: 12px; color: var(--text-muted); }
+
+    .footer-copy {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 640px) {
+      .page-header { padding: 60px 20px 36px; }
+      main { padding: 0 20px 60px; }
+      .support-card { padding: 22px; }
+      .contact-section { padding: 32px 20px; }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-brand">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/></svg>
+      <span>The Center</span>
+    </a>
+    <a href="index.html" class="nav-link">Home</a>
+  </nav>
+
+  <div class="page-header">
+    <h1>How Can We <span>Help?</span></h1>
+    <p>We're here to make sure your breathwork experience is seamless. Find answers below or reach out directly.</p>
+  </div>
+
+  <main>
+    <div class="support-grid">
+      <div class="support-card reveal">
+        <div class="support-card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <h3>Contact Support</h3>
+        <p>Have a question, issue, or feedback? Send us an email and we'll get back to you as soon as possible.</p>
+        <a href="mailto:thecenterbreathwork@gmail.com" class="card-link">
+          thecenterbreathwork@gmail.com
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+        </a>
+      </div>
+
+      <div class="support-card reveal">
+        <div class="support-card-icon" style="background:rgba(232,184,109,0.15)">
+          <svg style="color:#E8B86D" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+        </div>
+        <h3>Frequently Asked Questions</h3>
+        <p>Find quick answers to common questions about the app, subscriptions, and breathing techniques below.</p>
+      </div>
+
+      <div class="support-card reveal">
+        <div class="support-card-icon" style="background:rgba(123,143,212,0.15)">
+          <svg style="color:#7B8FD4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
+        </div>
+        <h3>Privacy & Security</h3>
+        <p>Your data is safe with us. We don't collect personal information beyond what's needed for the app to function.</p>
+        <a href="https://www.termsfeed.com/live/the-center-breathwork-privacy" target="_blank" rel="noopener" class="card-link">
+          View Privacy Policy
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="faq-section reveal">
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          Is The Center free to use?
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Yes! The Center includes 4 breathing patterns completely free with no time limits. You can use Coherence Balance, Box Breathing, Resonance, and Deep Calm without ever paying. The Pro subscription unlocks all 9 patterns, the custom pattern builder, and more.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          How do I cancel my subscription?
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">You can cancel your subscription anytime through your Apple ID settings. Go to Settings > Apple ID > Subscriptions > The Center, then tap "Cancel Subscription." You'll still have access to Pro features until the end of your current billing period.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          How do I restore my purchase on a new device?
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Open The Center app on your new device, go to Profile > Settings, and tap "Restore Purchases." Make sure you're signed in with the same Apple ID you used for the original purchase. Your Pro access will be restored automatically.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          What breathing techniques are included?
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">The Center includes 9 science-backed breathing techniques: Coherence Balance, Box Breathing, 4-7-8 Relaxation, Vortex, Samadhi, Power Breath (Wim Hof inspired), Resonance, Deep Calm, and the Custom Pattern Builder. Each technique targets different goals like stress relief, focus, energy, or sleep.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          Does the app work offline?
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Yes! All breathing sessions work completely offline. You don't need an internet connection to practice. Your session history and streak data are stored locally on your device.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          Do I need to create an account?
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">No account is required. Simply download the app and start breathing right away. No sign-up, no email, no personal information needed.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          How does the free trial work?
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">The Pro subscription includes a 7-day free trial. You get full access to all features during the trial. If you cancel before the trial ends, you won't be charged. After the trial, it's $4.99/month.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          I'm having a technical issue. What should I do?
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">First, try closing and reopening the app. If the issue persists, make sure you're on the latest version by checking for updates in the App Store. If the problem continues, please email us at thecenterbreathwork@gmail.com with a description of the issue and your device model, and we'll help resolve it.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-section reveal">
+      <h2>Still Need Help?</h2>
+      <p>We'd love to hear from you. Whether it's a bug report, feature request, or just a question — don't hesitate to reach out.</p>
+      <a href="mailto:thecenterbreathwork@gmail.com" class="contact-email">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        Email Us
+      </a>
+      <div class="response-note">We typically respond within 24 hours.</div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-brand">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/></svg>
+      <span>The Center Breathwork</span>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <span>&middot;</span>
+      <a href="https://www.termsfeed.com/live/the-center-breathwork-privacy" target="_blank" rel="noopener">Privacy Policy</a>
+      <span>&middot;</span>
+      <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">Terms of Use</a>
+      <span>&middot;</span>
+      <a href="https://github.com/obadiahpd1" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <div class="footer-copy">&copy; 2026 The Center Breathwork. All rights reserved.</div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
